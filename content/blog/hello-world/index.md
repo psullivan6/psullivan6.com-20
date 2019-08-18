@@ -1,7 +1,13 @@
 ---
 title: Hello World
-date: "2015-05-01T22:12:03.284Z"
-description: "Hello World"
+date: '2015-05-01T22:12:03.284Z'
+description: 'Hello World'
+colors: [
+  'rgb(214, 224, 61)',
+  'rgb(0, 118, 192)',
+  'rgb(0, 75, 145)',
+  'rgb(0, 39, 76)'
+]
 ---
 
 This is my first post on my new fake blog! How exciting!

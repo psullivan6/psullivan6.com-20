@@ -1,57 +1,69 @@
-import React from "react"
-import { Link } from "gatsby"
+import React from 'react';
+import { Link } from 'gatsby';
 
-import { rhythm, scale } from "../utils/typography"
+// Components
+import TransitionPanelGroup from '../components/TransitionPanelGroup';
 
-class Layout extends React.Component {
-  render() {
-    const { location, title, children } = this.props
-    const rootPath = `${__PATH_PREFIX__}/`
-    let header
+// Styles
+import { rhythm, scale } from '../utils/typography';
+import { usePage } from '../context/PageContext';
 
-    if (location.pathname === rootPath) {
-      header = (
-        <h1
+const Layout = ({ location, title, children }) => {
+  const {
+    data: { panelData },
+  } = usePage();
+  const rootPath = `${__PATH_PREFIX__}/`;
+  let header;
+
+  if (location.pathname === rootPath) {
+    header = (
+      <h1
+        style={{
+          ...scale(1.5),
+          marginBottom: rhythm(1.5),
+          marginTop: 0,
+        }}
+      >
+        <Link
           style={{
-            ...scale(1.5),
-            marginBottom: rhythm(1.5),
-            marginTop: 0,
+            boxShadow: `none`,
+            textDecoration: `none`,
+            color: `inherit`,
           }}
+          to={`/`}
         >
-          <Link
-            style={{
-              boxShadow: `none`,
-              textDecoration: `none`,
-              color: `inherit`,
-            }}
-            to={`/`}
-          >
-            {title}
-          </Link>
-        </h1>
-      )
-    } else {
-      header = (
-        <h3
+          {title}
+        </Link>
+      </h1>
+    );
+  } else {
+    header = (
+      <h3
+        style={{
+          fontFamily: `Montserrat, sans-serif`,
+          marginTop: 0,
+        }}
+      >
+        <Link
           style={{
-            fontFamily: `Montserrat, sans-serif`,
-            marginTop: 0,
+            boxShadow: `none`,
+            textDecoration: `none`,
+            color: `inherit`,
           }}
+          to={`/`}
         >
-          <Link
-            style={{
-              boxShadow: `none`,
-              textDecoration: `none`,
-              color: `inherit`,
-            }}
-            to={`/`}
-          >
-            {title}
-          </Link>
-        </h3>
-      )
-    }
-    return (
+          {title}
+        </Link>
+      </h3>
+    );
+  }
+
+  return (
+    <div
+      style={{
+        backgroundColor: 'white',
+      }}
+    >
       <div
         style={{
           marginLeft: `auto`,
@@ -67,9 +79,10 @@ class Layout extends React.Component {
           {` `}
           <a href="https://www.gatsbyjs.org">Gatsby</a>
         </footer>
+        <TransitionPanelGroup {...panelData} />
       </div>
-    )
-  }
-}
+    </div>
+  );
+};
 
-export default Layout
+export default Layout;

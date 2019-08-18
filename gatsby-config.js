@@ -74,5 +74,7 @@ module.exports = {
         pathToConfigModule: `src/utils/typography`,
       },
     },
+    `gatsby-plugin-transition-link`,
+    `gatsby-plugin-styled-components`,
   ],
-}
+};
