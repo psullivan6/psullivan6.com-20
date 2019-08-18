@@ -4,21 +4,27 @@ import { TransitionState } from 'gatsby-plugin-transition-link';
 // Components
 import TransitionPanel from '../TransitionPanel';
 
+// Context
+import { usePage } from '../../context/PageContext';
+
 // Styles
 import { Container } from './styles';
 
-const TransitionPanelGroup = props => {
-  console.log('props', props);
+const TransitionPanelGroup = () => {
+  const {
+    data: { panelData },
+  } = usePage();
+
   const {
     colors: [primaryColor, ...restColors],
-  } = props;
+  } = panelData;
 
   return (
     <TransitionState>
       {transState => {
         const state =
           transState.transitionStatus === 'entered'
-            ? props.state
+            ? panelData.state
             : transState.transitionStatus;
 
         return (

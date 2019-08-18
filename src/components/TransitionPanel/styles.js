@@ -3,15 +3,15 @@ import styled, { css } from 'styled-components';
 const panelStyles = [
   css`
     width: 40%;
-    transition: width 0.9s ease 0.24s;
+    transition: width 0.6s ease 0.24s;
   `,
   css`
     width: 21%;
-    transition: width 0.9s ease 0.3s;
+    transition: width 0.6s ease 0.3s;
   `,
   css`
     width: 6%;
-    transition: width 0.9s ease 0.36s;
+    transition: width 0.6s ease 0.36s;
   `,
 ];
 

@@ -6,12 +6,8 @@ import TransitionPanelGroup from '../components/TransitionPanelGroup';
 
 // Styles
 import { rhythm, scale } from '../utils/typography';
-import { usePage } from '../context/PageContext';
 
 const Layout = ({ location, title, children }) => {
-  const {
-    data: { panelData },
-  } = usePage();
   const rootPath = `${__PATH_PREFIX__}/`;
   let header;
 
@@ -79,7 +75,7 @@ const Layout = ({ location, title, children }) => {
           {` `}
           <a href="https://www.gatsbyjs.org">Gatsby</a>
         </footer>
-        <TransitionPanelGroup {...panelData} />
+        <TransitionPanelGroup />
       </div>
     </div>
   );

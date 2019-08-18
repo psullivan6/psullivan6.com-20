@@ -2,7 +2,7 @@ import React from 'react';
 import { graphql } from 'gatsby';
 
 import TransitionLink from 'gatsby-plugin-transition-link';
-import { TweenMax, Power1 } from 'gsap/all';
+import { TweenMax } from 'gsap/all';
 
 import Bio from '../components/bio';
 import Layout from '../components/Layout';

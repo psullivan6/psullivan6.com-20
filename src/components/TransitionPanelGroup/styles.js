@@ -1,7 +1,6 @@
 import styled from 'styled-components';
 
 const bezier = 'cubic-bezier(.77,.47,.57,.97)';
-const speed_fast = '0.25s';
 
 export const Container = styled.div`
   z-index: 2;

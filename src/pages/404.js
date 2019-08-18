@@ -1,6 +1,10 @@
 import React from 'react';
 import { graphql } from 'gatsby';
 
+// Context
+import PageWrapper from '../context/PageWrapper';
+
+// Components
 import Layout from '../components/Layout';
 import SEO from '../components/seo';
 
@@ -19,7 +23,13 @@ class NotFoundPage extends React.Component {
   }
 }
 
-export default NotFoundPage;
+const WrappedNotFoundPage = props => (
+  <PageWrapper>
+    <NotFoundPage {...props} />
+  </PageWrapper>
+);
+
+export default WrappedNotFoundPage;
 
 export const pageQuery = graphql`
   query {
