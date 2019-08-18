@@ -1,19 +1,18 @@
-import React from 'react';
+import React, { Fragment } from 'react';
 import { Link, graphql } from 'gatsby';
 
-import Bio from '../components/bio';
-import Layout from '../components/layout';
-import SEO from '../components/seo';
+import Bio from '../components/Bio';
+import SEO from '../components/SEO';
 import { rhythm, scale } from '../utils/typography';
 
 class BlogPostTemplate extends React.Component {
   render() {
     const post = this.props.data.markdownRemark;
-    const siteTitle = this.props.data.site.siteMetadata.title;
+    // const siteTitle = this.props.data.site.siteMetadata.title;
     const { previous, next } = this.props.pageContext;
 
     return (
-      <Layout location={this.props.location} title={siteTitle}>
+      <Fragment>
         <SEO
           title={post.frontmatter.title}
           description={post.frontmatter.description || post.excerpt}
@@ -75,7 +74,7 @@ class BlogPostTemplate extends React.Component {
             </li>
           </ul>
         </nav>
-      </Layout>
+      </Fragment>
     );
   }
 }
