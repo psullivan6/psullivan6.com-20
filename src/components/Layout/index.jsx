@@ -11,27 +11,26 @@ import { rhythm } from '../../utils/typography';
 class Layout extends React.Component {
   render() {
     const { location, children } = this.props;
-    const rootPath = `${__PATH_PREFIX__}/`;
     const siteTitle = this.props.data.site.siteMetadata.title;
+    const isHomepage = location.pathname === `${__PATH_PREFIX__}/`;
 
-    const headerStyles =
-      location.pathname === rootPath
-        ? {
-            marginTop: 0,
-            marginBottom: rhythm(1.5),
-            fontFamily: `Montserrat, sans-serif`,
-            color: 'rebeccapurple',
-          }
-        : {
-            marginTop: 0,
-            marginBottom: rhythm(1.5),
-            fontFamily: `Montserrat, sans-serif`,
-          };
+    const headerStyles = isHomepage
+      ? {
+          marginTop: 0,
+          marginBottom: rhythm(1.5),
+          fontFamily: `Montserrat, sans-serif`,
+          color: 'rebeccapurple',
+        }
+      : {
+          marginTop: 0,
+          marginBottom: rhythm(1.5),
+          fontFamily: `Montserrat, sans-serif`,
+        };
 
     return (
       <Fragment>
         <GlobalStyle />
-        <Transition location={location}>
+        <Transition location={location} isHomepage={isHomepage}>
           <header
             style={{
               marginLeft: `auto`,

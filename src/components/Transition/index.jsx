@@ -1,4 +1,4 @@
-import React, { Fragment } from 'react';
+import React from 'react';
 import {
   TransitionGroup,
   Transition as ReactTransition,
@@ -15,7 +15,7 @@ import styled, { css, keyframes } from 'styled-components';
 
 const wipe = keyframes`
   from {
-    right: 180%;
+    right: 300%;
   }
   to {
     right: 0%;
@@ -33,7 +33,7 @@ const Container = styled.main`
     css`
       z-index: 1;
       position: absolute;
-      right: 180%;
+      right: 300%;
       animation: ${wipe} ${duration} ease;
     `}
 
@@ -46,14 +46,14 @@ const Container = styled.main`
   `}
 `;
 
-const Transition = ({ children, location }) => (
+const Transition = ({ children, location, isHomepage }) => (
   <TransitionGroup component={null}>
     <ReactTransition
       key={location.pathname}
       timeout={{ enter: durationUnitless, exit: durationUnitless }}
     >
       {status => (
-        <Container status={status}>
+        <Container status={status} isHomepage={isHomepage}>
           <section
             style={{
               marginLeft: `auto`,
@@ -63,7 +63,11 @@ const Transition = ({ children, location }) => (
           >
             {children}
           </section>
-          <TransitionPanel status={status} />
+          <TransitionPanel
+            status={status}
+            quantity={3}
+            isHomepage={isHomepage}
+          />
         </Container>
       )}
     </ReactTransition>
